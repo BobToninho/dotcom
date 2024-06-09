@@ -1,2 +1,2 @@
 devd -l ./www/ \
-/morals=http://devd.io:8000/morals.html
+/values=http://devd.io:8000/values.html
