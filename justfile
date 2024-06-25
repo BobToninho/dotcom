@@ -1,4 +1,5 @@
 default:
   devd -l ./www/ \
-    /values=http://devd.io:8000/values.html \
-    /now=http://devd.io:8000/now.html
+    /values=www/values.html \
+    /now=www/now.html \
+    /st=www/st.html
