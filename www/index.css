@@ -4,11 +4,23 @@
 
 :root {
   font-size: 24px;
-  font-family: Palatino, Times, Times New Roman, serif;
+  font-family: Times, Times New Roman, serif;
+  background-color: color-mix(in srgb, cornsilk, white 75%);
 }
 
 #title {
   font-size: 1.5rem;
+}
+
+#title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+time {
+  font-family: sans-serif;
 }
 
 body {
@@ -19,4 +31,9 @@ body {
 
 img {
   max-width: 100%;
+}
+
+p {
+  letter-spacing: normal;
+  line-height: 1.4;
 }
