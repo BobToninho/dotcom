@@ -9,13 +9,6 @@
   <lastBuildDate>Sun 24 Nov 2024 18:25:14 +0100</lastBuildDate>
   <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate>
   <item>
-    <title>How I take notes</title>
-    <guid>https://www.robertotonino.com/nt</guid>
-    <link>https://www.robertotonino.com/nt</link>
-    <description>Reminding my future self how I take notes right now. The approach is so minimal that it should last forever.</description>
-    <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate>
-  </item>
-  <item>
     <title>Values</title>
     <guid>https://www.robertotonino.com/values</guid>
     <link>https://www.robertotonino.com/values</link>
@@ -28,6 +21,13 @@
     <link>https://www.robertotonino.com/fi0</link>
     <description>Documenting the start of my Financial Indepencence journey. Ahead, exciting times. I hope.</description>
     <pubDate>Tue, 20 Sep 2024 20:00:00 +0200</pubDate>
+  </item>
+  <item>
+    <title>How I take notes</title>
+    <guid>https://www.robertotonino.com/nt</guid>
+    <link>https://www.robertotonino.com/nt</link>
+    <description>Reminding my future self how I take notes right now. The approach is so minimal that it should last forever.</description>
+    <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate>
   </item>
 </channel>
 
