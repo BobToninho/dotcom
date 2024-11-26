@@ -1,0 +1,7 @@
+* [ ] Come up with a description
+* [ ] Update feed.xml
+** [ ] add `<item>`
+** [ ] lastBuildDate
+** [ ] pubDate
+* [ ] Update meta tags
+* [ ] Update index.html

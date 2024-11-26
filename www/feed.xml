@@ -6,8 +6,8 @@
   <link>https://www.robertotonino.com</link>
   <description>Roberto Tonino's personal website</description>
   <language>en-us</language>
-  <lastBuildDate>Sun 24 Nov 2024 18:25:14 +0100</lastBuildDate>
-  <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate>
+  <lastBuildDate>Tue 26 Nov 2024 20:35:01 +0100</lastBuildDate>
+  <pubDate>Tue 26 Nov 2024 20:35:01 +0100</pubDate>
   <item>
     <title>Values</title>
     <guid>https://www.robertotonino.com/values</guid>
@@ -28,6 +28,13 @@
     <link>https://www.robertotonino.com/note-taking</link>
     <description>Reminding my future self how I take notes right now. The approach is so minimal that it should last forever.</description>
     <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate>
+  </item>
+  <item>
+    <title>Do less, but finish it</title>
+    <guid>https://www.robertotonino.com/do-less</guid>
+    <link>https://www.robertotonino.com/do-less</link>
+    <description>A simple way that was recommended me to solve a problem that curious people have.</description>
+    <pubDate>Tue 26 Nov 2024 20:35:01 +0100</pubDate>
   </item>
 </channel>
 
