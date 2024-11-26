@@ -27,6 +27,7 @@ body {
   max-width: 65ch;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 0.75rem;
 }
 
 img {
