@@ -6,8 +6,8 @@
   <link>https://www.robertotonino.com</link>
   <description>Roberto Tonino's personal website</description>
   <language>en-us</language>
-  <lastBuildDate>Tue 26 Nov 2024 20:35:01 +0100</lastBuildDate>
-  <pubDate>Tue 26 Nov 2024 20:35:01 +0100</pubDate>
+  <lastBuildDate>Mon 23 Dec 2024 19:48:01 +0100</lastBuildDate>
+  <pubDate>Mon 23 Dec 2024 19:48:01 +0100</pubDate>
   <item>
     <title>Values</title>
     <guid>https://www.robertotonino.com/values</guid>
@@ -28,6 +28,13 @@
     <link>https://www.robertotonino.com/do-less</link>
     <description>A simple way that was recommended me to solve a problem that curious people have.</description>
     <pubDate>Tue 26 Nov 2024 20:35:01 +0100</pubDate>
+  </item>
+  <item>
+    <title>Moving in a new city and leaving the nest</title>
+    <guid>https://www.robertotonino.com/moving-out</guid>
+    <link>https://www.robertotonino.com/moving-out</link>
+    <description>Describing my first experience moving out from my family to a new city.</description>
+    <pubDate>Mon 23 Dec 2024 19:48:01 +0100</pubDate>
   </item>
 </channel>
 

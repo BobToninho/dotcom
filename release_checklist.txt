@@ -5,3 +5,4 @@
 ** [ ] pubDate
 * [ ] Update meta tags
 * [ ] Update index.html
+* [ ] Update sitemap.txt
