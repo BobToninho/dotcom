@@ -1,16 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
-FILE_SRC="file.md"
-FILE_OUT="www/test.html"
-TEMPLATE="template2.html"
-TITLE="This is my title"
-DESCRIPTION="This is my description"
-TIME="2025-01-05"
-SLUG=""
+FILE_SRC=${1-"file.html"}
 
-pandoc $FILE_SRC --standalone --template $TEMPLATE --data-dir=./ \
-  --variable title:$TITLE \
-  --variable description:$DESCRIPTION \
-  --variable time:$TIME \
-  --variable slug:$SLUG \
-  -o $FILE_OUT
+METADATA="---
+title: this is my title!!!!
+description: this is my description
+day: 2025-01-05
+slug: file
+"
+
+pandoc $FILE_SRC --from html-auto_identifiers -s --template templates/post.html --data-dir=./ --metadata-file <(echo "$METADATA") -o www/GENERATED.html
+pandoc $FILE_SRC -s --template templates/feed.html --data-dir=./ --metadata-file <(echo "$METADATA") >> www/feed.xml
