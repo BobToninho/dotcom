@@ -6,4 +6,4 @@ default:
     /do-less=www/do-less.html
 
 clean:
-	rm -f www/GENERATED.html
+	rm -f www/GENERATED.html feed_REMOVE.html

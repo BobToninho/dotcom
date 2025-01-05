@@ -2,12 +2,5 @@
 
 FILE_SRC=${1-"file.html"}
 
-METADATA="---
-title: this is my title!!!!
-description: this is my description
-day: 2025-01-05
-slug: file
-"
-
-pandoc $FILE_SRC --from html-auto_identifiers -s --template templates/post.html --data-dir=./ --metadata-file <(echo "$METADATA") -o www/GENERATED.html
-pandoc $FILE_SRC -s --template templates/feed.html --data-dir=./ --metadata-file <(echo "$METADATA") >> www/feed.xml
+pandoc $FILE_SRC --from html-auto_identifiers -s --template templates/post.html --data-dir=./ --metadata-file metadata.yml -o www/GENERATED.html
+pandoc $FILE_SRC -s --template templates/feed.html --data-dir=./ --metadata-file metadata.yml -o feed_REMOVE.html
