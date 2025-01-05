@@ -1,0 +1,16 @@
+#!/bin/sh
+
+FILE_SRC="file.md"
+FILE_OUT="www/test.html"
+TEMPLATE="template2.html"
+TITLE="This is my title"
+DESCRIPTION="This is my description"
+TIME="2025-01-05"
+SLUG=""
+
+pandoc $FILE_SRC --standalone --template $TEMPLATE --data-dir=./ \
+  --variable title:$TITLE \
+  --variable description:$DESCRIPTION \
+  --variable time:$TIME \
+  --variable slug:$SLUG \
+  -o $FILE_OUT
