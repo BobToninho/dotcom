@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.robertotonino.com/sitemap.txt
+Sitemap: https://robertotonino.com/sitemap.txt
