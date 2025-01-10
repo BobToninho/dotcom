@@ -3,31 +3,46 @@
 }
 
 :root {
-  font-size: 24px;
-  font-family: Times, Times New Roman, serif;
-  background-color: color-mix(in srgb, cornsilk, white 75%);
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  /* https://colorhunt.co/palette/4c4b16898121e6c767f87a53 */
+  background-color: #E6C767;
+}
+
+:link {
+  color: #898121;
+}
+
+:visited {
+  color: #4C4B16;
 }
 
 #title {
-  font-size: 1.5rem;
+  font-size: 1rem;
+  margin: 0;
 }
 
-#title,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-time {
-  font-family: sans-serif;
+h6 {
+  /* color: red; */
+  font-size: 1rem;
 }
 
 body {
   max-width: 65ch;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid black;
+  /* border-bottom: 4px solid black;
+  border-right: 4px solid black; */
+  box-shadow: 2px 2px black;
+  background-color: white;
+  width: 720px;
 }
 
 img {
@@ -36,5 +51,9 @@ img {
 
 p {
   letter-spacing: normal;
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+section[itemprop=articleBody] > p:last-child {
+  margin-bottom: 0;
 }
