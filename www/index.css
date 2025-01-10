@@ -40,7 +40,7 @@ body {
   border: 1px solid black;
   box-shadow: 2px 2px black;
   background-color: white;
-  width: 720px;
+  max-width: 720px;
 }
 
 img {
