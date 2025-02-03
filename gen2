@@ -1,26 +1,48 @@
+#!/bin/bash
+
+PROGNAME=$0
+
+if [ -z "$1" ]; then
+  echo "No input file passed.
+
+Example usage: $PROGNAME file.md"
+  exit 2
+fi
+
+FILE=$1
+
+TITLE=$(sed '1q;d' $FILE)
+DESCRIPTION=$(sed '3q;d' $FILE)
+SLUG=$(sed '5q;d' $FILE)
+PUB_DATE=$(date +"%a, %d %b %Y %H:%M:%S %z")
+BODY=$(cat $FILE | tail --lines=+7 | pandoc --to html)
+
+generate_html() {
+  echo "generating html..." >&2
+  cat << EOF
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$title$ - Roberto Tonino</title>
+    <title>$TITLE - Roberto Tonino</title>
 
-    <meta name="description" property="og:description" content="$description$">
+    <meta name="description" property="og:description" content="$DESCRIPTION">
     <meta name="author" content="Roberto Tonino">
-    <link rel="canonical" href="https://www.robertotonino.com/$slug$">
+    <link rel="canonical" href="https://www.robertotonino.com/$SLUG">
 
-    <meta property="og:title" content="$title$">
-    <meta property="og:url" content="https://www.robertotonino.com/$slug$">
+    <meta property="og:title" content="$TITLE">
+    <meta property="og:url" content="https://www.robertotonino.com/$SLUG">
     <meta property="og:type" content="article">
     <meta property="og:image" content="">
     <meta property="og:image:alt" content="">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="robertotonino.com">
-    <meta property="twitter:url" content="https://www.robertotonino.com/$slug$">
-    <meta name="twitter:title" content="$title$">
-    <meta name="twitter:description" content="$description$">
+    <meta property="twitter:url" content="https://www.robertotonino.com/$SLUG">
+    <meta name="twitter:title" content="$TITLE">
+    <meta name="twitter:description" content="$DESCRIPTION">
     <meta name="twitter:image" content="">
 
     <script type="application/ld+json">
@@ -59,15 +81,15 @@
         </span>
 
         <hgroup>
-          <h1 itemprop="name headline">$title$</h1>
+          <h1 itemprop="name headline">$TITLE</h1>
 
           <p>
-            <time datetime="$day$" itemprop="datePublished">$day$</time>
+            <time datetime="$(date -I)" itemprop="datePublished">$(date +"%B %Y")</time>
           </p>
         </hgroup>
 
         <section itemprop="articleBody">
-  $body$
+$BODY
         </section>
 
       </article>
@@ -75,6 +97,22 @@
   </body>
 
 </html>
+EOF
+}
 
+generate_feed() {
+  echo "generating feed..." >&2
+  cat << EOF
+<item>
+  <title>$TITLE</title>
+  <guid>https://www.robertotonino.com/$SLUG</guid>
+  <link>https://www.robertotonino.com/$SLUG</link>
+  <description>$DESCRIPTION</description>
+  <!--<pubDate>Tue, 11 Jun 2024 21:11:36 +0200</pubDate>-->
+  <pubDate>$PUB_DATE</pubDate>
+</item>
+EOF
+}
 
-
+generate_html > POST_TO_MOVE.html
+generate_feed > FEED_TO_MOVE.xml
