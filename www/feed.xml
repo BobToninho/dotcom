@@ -9,11 +9,18 @@
   <lastBuildDate>Mon 23 Dec 2024 19:48:01 +0100</lastBuildDate>
   <pubDate>Mon 23 Dec 2024 19:48:01 +0100</pubDate>
   <item>
-    <title>Values</title>
-    <guid>https://www.robertotonino.com/values</guid>
-    <link>https://www.robertotonino.com/values</link>
-    <description>Talking about my values.</description>
-    <pubDate>Tue, 11 Jun 2024 21:11:36 +0200</pubDate>
+    <title>Run-time verification of web applications</title>
+    <guid>https://www.robertotonino.com/haydar2013-report</guid>
+    <link>https://www.robertotonino.com/haydar2013-report</link>
+    <description>This report summarizes the paper “A formal approach for run-time verification of web applications using scope-extended LTL”.</description>
+    <pubDate>Mon, 24 Mar 2025 11:07:48 +0100</pubDate>
+  </item>
+  <item>
+    <title>Do less, but finish it</title>
+    <guid>https://www.robertotonino.com/do-less</guid>
+    <link>https://www.robertotonino.com/do-less</link>
+    <description>A simple way that was recommended me to solve a problem that curious people have.</description>
+    <pubDate>Tue 26 Nov 2024 20:35:01 +0100</pubDate>
   </item>
   <item>
     <title>How I take notes</title>
@@ -23,11 +30,11 @@
     <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate>
   </item>
   <item>
-    <title>Do less, but finish it</title>
-    <guid>https://www.robertotonino.com/do-less</guid>
-    <link>https://www.robertotonino.com/do-less</link>
-    <description>A simple way that was recommended me to solve a problem that curious people have.</description>
-    <pubDate>Tue 26 Nov 2024 20:35:01 +0100</pubDate>
+    <title>Values</title>
+    <guid>https://www.robertotonino.com/values</guid>
+    <link>https://www.robertotonino.com/values</link>
+    <description>Talking about my values.</description>
+    <pubDate>Tue, 11 Jun 2024 21:11:36 +0200</pubDate>
   </item>
   <item>
     <title>Moving in a new city and leaving the nest</title>
