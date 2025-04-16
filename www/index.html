@@ -17,6 +17,7 @@
   <meta property="twitter:url" content="https://www.robertotonino.com">
   <meta name="twitter:title" content="Homepage - Roberto Tonino">
 
+  <style>*{box-sizing:border-box}:root{--color-1:#4c4b16;--color-2:#898121;--color-3:#e6c767;--accent:#f87a53}:root{font-size:20px;font-family:Arial,sans-serif;background-color:#e6c767}:link{color:#898121}:visited{color:#4c4b16}#title{font-size:1rem;margin:0}h1,h2,h3,h4,h5,h6{font-size:1rem}body{margin-left:auto;margin-right:auto;padding:.75rem;border:1px solid #000;box-shadow:2px 2px #000;background-color:#fff;max-width:720px}img{max-width:100%}p{letter-spacing:normal;line-height:1.5}section[itemprop=articleBody]>p:last-child{margin-bottom:0}#support-ukraine{border:1px solid #000;box-shadow:2px 2px #000;padding-top:2rem;padding-bottom:2rem;margin-bottom:1rem;text-align:center;background-color:var(--accent)}embed{max-width:calc(720px - calc(.75rem * 2))}</style>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,7 +37,7 @@
   </script>
 
 
-  <link rel="stylesheet" href="./index.css">
+  <link rel="preload" href="./index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link href="/favicon-light.png" rel="icon" media="(prefers-color-scheme: light)">
   <link href="/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)">
   <link href="/favicon-light.png" type="image/x-icon" rel="shortcut icon" media="(prefers-color-scheme: light)">
@@ -96,5 +97,6 @@
       <small>The design of this website is freely inspired by <a href="https://usgraphics.com/">US Graphics</a>. Check them out!</small>
     </footer>
   </main>
-</body>
+    <noscript><link rel="stylesheet" href="./index.css"></noscript>
+  </body>
 </html>
