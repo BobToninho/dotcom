@@ -6,7 +6,8 @@ default:
     /do-less=www/do-less.html \
     /moving-out=www/moving-out.html \
     /focus=www/focus.html \
-    /haydar2013-report=www/haydar2013-report.html
+    /haydar2013-report=www/haydar2013-report.html \
+    /adoption=www/adoption.html
 
 critical:
 	# bun x inline-critical --html www/index.html --css www/index.css > www/index2.html
