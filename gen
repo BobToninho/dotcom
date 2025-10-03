@@ -61,7 +61,6 @@ generate_html() {
     <link href="/favicon-dark.png" type="image/x-icon" rel="shortcut icon" media="(prefers-color-scheme: dark)">
     <link href="/favicon-light.png" type="image/x-icon" rel="apple-touch-icon" media="(prefers-color-scheme: light)">
     <link href="/favicon-dark.png" type="image/x-icon" rel="apple-touch-icon" media="(prefers-color-scheme: dark)">
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "776ec8b3b80340d38108e9adbe35d3ca"}'></script><!-- End Cloudflare Web Analytics -->
   </head>
 
   <body>
