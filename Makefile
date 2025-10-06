@@ -1,4 +1,7 @@
 default:
+	rsync -avz www/* roberto@vps:/var/www/robertotonino.com/html/
+
+dev:
 	devd -l ./www/ \
     /values=www/values.html \
     /now=www/now.html \

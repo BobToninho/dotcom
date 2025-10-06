@@ -1,3 +1,4 @@
 bun x inline-critical --html www/file.html --css www/index.css > www/file2.html
 mv www/file2.html www/file.html
 
+rsync -avz www/* roberto@vps:/var/www/robertotonino.com/html/
