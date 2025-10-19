@@ -1,14 +1,14 @@
 obiettivo: scalare il monitor del mio macbookpro 2015
 
-prima soluzione con MX linux era usare scaling, ma: alcune app non scalano bene e in generale "sento" quando un desktop è scalato. Sono sicuro si possa fare di più
+Ho dovuto adattare lo schermo del mio MacBook Pro 2015 con installato MX Linux perché aveva una risoluzione troppo bassa. La prima soluzione è stata scalare 2x tramite le impostazioni che shippano con MX Linux. Ha funzionato per buona parte, ma ero sicuro ci fosse di meglio (e alcune app non renderizzavano perfettamente certi elementi). Le app però erano visibilmente scalate e c'era meno spazio di manovra.
 
-provato a leggere la pagina arch wiki sui HiDPI e mi sono reso conto che il numero sbagliato di DPI potrebbe essere il problema
+Ho provato a leggere la pagina arch wiki riguardo HiDPI e dopo qualche paragrafo pensavo di essere sulla giusta strada: il mio laptop ha settato il numero di DPI sbagliato, quindi correggere i DPI dovrebbe sistemare il mio problema. Di fretta, provo ad eseguire il comando `xrandr --dpi 192`, ma non succede nulla se non un piccolo flash. Dunque i DPI non sono un problema.
 
-mentre leggevo, menzionano il comando xrandr e non capisco cosa sia. Lo runno e quando vedo l'output mi si accende la scintilla: non è che forse è la risoluzione il problema, e non i DPI? (mentre lo scrivo sembra stupido, ma prima per me non lo era)
+Continuando a leggere, viene menzionato il comando xrandr un po' a caso. Lo eseguo per capire cosa fa: manda in output tutte le possibili risoluzioni del mio schermo. Non è che forse è la risoluzione il problema? (Post-mortem sembra stupido, ma in quel momento non lo era).
 
-ricordo che avevo già provato a cambiare la risoluzione ma i risultati non mi soddisfacevano (TODO provare ad andare di nuovo alle impostazioni e vedere come veniva la risoluzione)
+Ricordo che avevo già provato una volta a cambiare la risoluzione, ma per qualche motivo non ero arrivato ad una soluzione. Potrebbero essere state le 11 di sera e potrei aver avuto qualche allucinazione.
 
-ho quindi usato xrandr per cambiare la risoluzione con il comando 
+Eseguendo `xrandr` nel seguente modo e provando qualche risoluzione (grazie a `tldr` ho subito trovato il comando adatto), sono arrivato ad una soluzione soddisfacente.
 
 ```sh
 xrandr --output eDP-1 --mode 1920x1200
