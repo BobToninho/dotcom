@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems with scaling - Roberto Tonino</title>
+
+    <meta name="description" property="og:description" content="Tale of a back and forth with Linux configs and Claude">
+    <meta name="author" content="Roberto Tonino">
+    <link rel="canonical" href="https://www.robertotonino.com/resolution">
+
+    <meta property="og:title" content="Problems with scaling">
+    <meta property="og:url" content="https://www.robertotonino.com/resolution">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="">
+    <meta property="og:image:alt" content="">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="robertotonino.com">
+    <meta property="twitter:url" content="https://www.robertotonino.com/resolution">
+    <meta name="twitter:title" content="Problems with scaling">
+    <meta name="twitter:description" content="Tale of a back and forth with Linux configs and Claude">
+    <meta name="twitter:image" content="">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Roberto Tonino",
+        "url": "https://robertotonino.com"
+      }
+    </script>
+
+    <link rel="stylesheet" href="./index.css">
+    <link href="/favicon-light.png" rel="icon" media="(prefers-color-scheme: light)">
+    <link href="/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)">
+    <link href="/favicon-light.png" type="image/x-icon" rel="shortcut icon" media="(prefers-color-scheme: light)">
+    <link href="/favicon-dark.png" type="image/x-icon" rel="shortcut icon" media="(prefers-color-scheme: dark)">
+    <link href="/favicon-light.png" type="image/x-icon" rel="apple-touch-icon" media="(prefers-color-scheme: light)">
+    <link href="/favicon-dark.png" type="image/x-icon" rel="apple-touch-icon" media="(prefers-color-scheme: dark)">
+  </head>
+
+  <body>
+    <aside id="support-ukraine">
+      <a href="https://u24.gov.ua/">
+        <img src="https://flagcdn.com/16x12/ua.png" srcset="https://flagcdn.com/32x24/ua.png 2x, https://flagcdn.com/48x36/ua.png 3x" width="16" height="12" alt="Ukraine flag">&nbsp;Support Ukraine by donating here. Thank you!&nbsp;<img src="https://flagcdn.com/16x12/ua.png" srcset="https://flagcdn.com/32x24/ua.png 2x, https://flagcdn.com/48x36/ua.png 3x" width="16" height="12" alt="Ukraine flag">
+      </a>
+    </aside>
+    <main>
+      <header>
+        <p id="title"><a href="/">Roberto Tonino</a></p>
+      </header>
+
+      <article itemscope itemtype="http://schema.org/BlogPosting">
+        <link itemscope itemprop="author" itemtype="https://schema.org/Person">
+          <meta itemprop="name" content="Roberto Tonino">
+          <meta itemprop="url" content="https://www.robertotonino.com">
+        </span>
+
+        <hgroup>
+          <h1 itemprop="name headline">Problems with scaling</h1>
+
+          <p>
+            <time datetime="2025-11-28" itemprop="datePublished">November 2025</time>
+          </p>
+        </hgroup>
+
+        <section itemprop="articleBody">
+<p>Months ago I bought a 2015 Macbook Pro without the OS. I installed <a
+href="https://mxlinux.org/">MX Linux</a> and ever since things went
+surprisingly well except one: text, pictures and icons were too small. I
+scaled the whole OS 2x and found the result OK. The feeling didn’t last
+much ’cause some apps didn’t render icons correctly, tickling the
+often-dormient area of my brain responsible for OCD.</p>
+<p>An evening after a bunch of sick-leave-days I start reading the arch
+wiki page on <a
+href="https://wiki.archlinux.org/title/HiDPI#X_Server">HiDPI and X
+Server</a> and, after reading three not so long paragraphs, think:
+<em>that must be the issue. It’s the Dots Per Inch</em>. HiDPI displays
+need 192 DPI to function properly; mine is set to 96 DPI at least
+according to the command <code>xdpyinfo | grep -B 2 resolution</code>,
+which returns:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>screen #0:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  dimensions:    1920x1200 pixels (508x317 millimeters)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  resolution:    96x96 dots per inch</span></code></pre></div>
+<p>I run the command <code>xrandr --dpi 192</code> to change the DPI,
+but the screen laughs at me as it remains the same as the moment before
+I ran the command.</p>
+<p>There is always something good in the bad, and now I am intrigued by
+the <code>xrandr</code> command. I run it with no flags and the result
+catches me off guard: it outputs all the possible resolutions of my
+screen (although I have to admit that any output would have caught me
+off guard (I didn’t know what to expect)). I have an epiphany: maybe the
+resolution is the problem?</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode txt"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Screen 0: minimum 320 x 200, current 1920 x 1200, maximum 16384 x 16384</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>eDP-1 connected primary 1920x1200+0+0 (normal left inverted right x axis y axis) 286mm x 179mm</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   1920x1200     59.88*+  47.84    59.95</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   2560x1600     59.97 +</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>   2560x1440     59.99    59.99    59.96    59.95</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   2048x1536     60.00</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   1920x1440     60.00</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>   1856x1392     60.01</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>   1792x1344     60.01</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>   2048x1152     59.99    59.98    59.90    59.91</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>   1920x1080     60.01    59.97    59.96    59.93</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>   1600x1200     60.00</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>   ...</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>   432x243       59.92    59.57</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>   320x240       60.05</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>   360x202       59.51    59.13</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>   320x180       59.84    59.32</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>DP-1 disconnected (normal left inverted right x axis y axis)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>HDMI-1 disconnected (normal left inverted right x axis y axis)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>DP-2 disconnected (normal left inverted right x axis y axis)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>HDMI-2 disconnected (normal left inverted right x axis y axis)</span></code></pre></div>
+<p><em>Truncated output of <code>xrandr</code></em></p>
+<p>I remember already trying to change the screen resolution but not
+getting to a working solution. Could have been a 23:00h hallucination as
+it happens with the screen addiction affecting the generation I am part
+of. Let’s try again.</p>
+<p>Running <code>xrandr --output eDP-1 --mode &lt;resolution&gt;</code>
+(thank you <a href="https://tldr.sh/"><code>tldr</code></a>) and playing
+around with different resolutions produces the correct result: the
+1920x1200 resolution. Sheer trial and error seems to be, in the year
+twentytwentyfive past summer and before autumn, still the way.</p>
+<p>But now I would like this command to be run automatically at each
+system boot.</p>
+<p>Claude, the smartest AI friend of the day, tells me to add the
+command inside an <code>~/.xinitrc</code> file, which supposedly runs
+every time the OS launches <a href="https://www.x.org/wiki/">Xorg</a>. I
+follow what the robot tells me to do and reboot the system, but the
+resolution is still the wrong one.</p>
+<p><em>I probably did something wrong. Claude can’t be wrong</em>, I
+think. So I ask Claude and it answers me assuming <em>it</em> was wrong
+and tells me to check my desktop manager LightDM because it all
+supposedly depends on how Xorg is launched and supposedly LightDM
+launches Xorg. Quickly reading online about LightDM I understand that I
+have to create the <code>~/.xprofile</code> file and make it executable
+and I also understand that LightDM does not run <code>~/.xinitrc</code>.
+I try creating <code>~/.xprofile</code> and nothing happens.</p>
+<p>I go back to Claude, it tells me to create a file in
+<code>~/.config/autostart/</code> and to add the command in that file. I
+know that directory; I am confident that this is the right solution. I
+try and nothing happens. <em>Clanker!</em>.</p>
+<p>I take a nervous walk in my apartment and then come back to the
+laptop. It’s not over yet.</p>
+<p>Because I stopped at the first of the four solutions Claude gave me,
+I decide to try the second one: adding a file in
+<code>/etc/X11/xorg.conf.d</code> containing:</p>
+<pre><code>Section &quot;Monitor&quot;
+    Identifier &quot;eDP-1&quot;
+    Modeline &quot;1920x1200&quot; 154.00 1920 2048 2256 2592 1200 1201 1204 1242 -HSync +Vsync
+EndSection
+
+Section &quot;Screen&quot;
+    Identifier &quot;Screen0&quot;
+    Monitor &quot;eDP-1&quot;
+    DefaultDepth 24
+    Subsection &quot;Display&quot;
+        Depth 24
+        Modes &quot;1920x1200&quot;
+    EndSubsection
+EndSection</code></pre>
+<p>I reboot the laptop for the fourth time and the resolution is
+correct. <em>So I am the clanker?</em>, I think. I stop for some minutes
+to reflect on the peculiar feeling of solving a problem that I created
+myself. I notice that also the login screen, which so far was using a
+small font, has an OK resolution.</p>
+<hr />
+<p>I didn’t really learn how X and LightDM work, the clanker gave me
+solutions. I didn’t understand why the <code>~/.xinitrc</code> and
+<code>~/.xprofile</code> files are not ran at system boot and I didn’t
+understand how LightDM launches X. What’s left to me?</p>
+        </section>
+
+      </article>
+    </main>
+  </body>
+
+</html>
