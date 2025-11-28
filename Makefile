@@ -1,7 +1,4 @@
 default:
-	rsync -avz www/* roberto@vps:/var/www/robertotonino.com/html/
-
-dev:
 	devd -l ./www/ \
     /values=www/values.html \
     /now=www/now.html \
@@ -9,8 +6,12 @@ dev:
     /do-less=www/do-less.html \
     /moving-out=www/moving-out.html \
     /focus=www/focus.html \
+    /resolution=www/resolution.html \
     /haydar2013-report=www/haydar2013-report.html \
     /adoption=www/adoption.html
+
+publish:
+	rsync -avz www/* roberto@vps:/var/www/robertotonino.com/html/
 
 # need to create a second file because inline-critical can't open and write the same file simultaneously
 critical:

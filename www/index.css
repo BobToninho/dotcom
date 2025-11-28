@@ -81,4 +81,6 @@ embed {
   max-width: calc(720px - calc(0.75rem * 2));
 }
 
-
+code {
+  white-space: pre-wrap;
+}
