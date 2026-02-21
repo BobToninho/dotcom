@@ -8,7 +8,8 @@ default:
     /focus=www/focus.html \
     /resolution=www/resolution.html \
     /haydar2013-report=www/haydar2013-report.html \
-    /adoption=www/adoption.html
+    /adoption=www/adoption.html \
+    /hyperion=www/hyperion.html
 
 publish:
 	rsync -avz www/* roberto@vps:/var/www/robertotonino.com/html/
