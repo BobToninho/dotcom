@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
+<script src="/rss-style.js" xmlns="http://www.w3.org/1999/xhtml"></script>
 
 <channel>
   <title>Roberto Tonino</title>
@@ -43,13 +44,13 @@
     <description>A simple way that was recommended me to solve a problem that curious people have.</description>
     <pubDate>Tue 26 Nov 2024 20:35:01 +0100</pubDate>
   </item>
-  <item>
-    <title>How I take notes</title>
-    <guid>https://www.robertotonino.com/note-taking</guid>
-    <link>https://www.robertotonino.com/note-taking</link>
-    <description>Reminding my future self how I take notes right now. The approach is so minimal that it should last forever.</description>
-    <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate>
-  </item>
+  <!-- <item> -->
+  <!--   <title>How I take notes</title> -->
+  <!--   <guid>https://www.robertotonino.com/note-taking</guid> -->
+  <!--   <link>https://www.robertotonino.com/note-taking</link> -->
+  <!--   <description>Reminding my future self how I take notes right now. The approach is so minimal that it should last forever.</description> -->
+  <!--   <pubDate>Sun 24 Nov 2024 18:25:14 +0100</pubDate> -->
+  <!-- </item> -->
   <item>
     <title>Values</title>
     <guid>https://www.robertotonino.com/values</guid>
