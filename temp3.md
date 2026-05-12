@@ -1,6 +1,6 @@
 What do you need to be a good people leader? (or, A fool believing he's saying something smart)
 
-What do you need to be a good people leader? (or, A fool believing he's saying something smart)
+An opinionated take on my experience of being a people leader for 1 year.
 
 tc
 

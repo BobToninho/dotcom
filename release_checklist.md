@@ -1,0 +1,12 @@
+# Release checklist
+
+- Come up with a description
+- Update feed.xml
+    - add `<item>`
+    - lastBuildDate
+    - pubDate
+- Update meta tags
+- Update index.html
+- Update sitemap.txt
+- Update Makefile
+- Check web 2.0 compliance
