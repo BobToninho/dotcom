@@ -13,6 +13,7 @@ default:
 
 publish:
 	rsync -avz www/* roberto@vps:/var/www/robertotonino.com/html/
+	date >> publish_history.log
 
 # need to create a second file because inline-critical can't open and write the same file simultaneously
 critical:
