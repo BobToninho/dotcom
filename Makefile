@@ -9,6 +9,7 @@ default:
     /haydar2013-report=www/haydar2013-report.html \
     /adoption=www/adoption.html \
     /hyperion=www/hyperion.html \
+    /count=www/count.html \
     /tc=www/tc.html
 
 publish:

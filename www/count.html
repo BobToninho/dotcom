@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>count</title>
+
+  <meta name="author" content="Roberto Tonino">
+  <link rel="canonical" href="https://www.robertotonino.com/count">
+
+  <meta property="og:title" content="Homepage - Roberto Tonino">
+  <meta property="og:url" content="https://www.robertotonino.com/count">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="robertotonino.com">
+  <meta property="twitter:url" content="https://www.robertotonino.com">
+  <meta name="twitter:title" content="Homepage - Roberto Tonino">
+
+  <style>*{box-sizing:border-box}:root{--color-1:#4c4b16;--color-2:#898121;--color-3:#e6c767;--accent:#f87a53}:root{font-size:20px;font-family:Arial,sans-serif;background-color:#e6c767}:link{color:#898121}:visited{color:#4c4b16}#title{font-size:1rem;margin:0}h1,h2,h3,h4,h5,h6{font-size:1rem}body{margin-left:auto;margin-right:auto;padding:.75rem;border:1px solid #000;box-shadow:2px 2px #000;background-color:#fff;max-width:720px}img{max-width:100%}p{letter-spacing:normal;line-height:1.5}section[itemprop=articleBody]>p:last-child{margin-bottom:0}#support-ukraine{border:1px solid #000;box-shadow:2px 2px #000;padding-top:2rem;padding-bottom:2rem;margin-bottom:1rem;text-align:center;background-color:var(--accent)}embed{max-width:calc(720px - calc(.75rem * 2))}</style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Roberto Tonino",
+      "url": "https://robertotonino.com",
+      "alumniOf": {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Università degli studi di Udine"
+        "url": "https://www.uniud.it/"
+      },
+      "gender": "https://schema.org/Male",
+      "jobTitle": "Software Engineer",
+      "nationality": "Italian"
+    }
+  </script>
+
+  <style>
+  #counter {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    button {
+      height: 40px;
+      font-size: 30px;
+    }
+  }
+
+  #count, #initial {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  #count {
+    font-size: 50px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+  }
+
+  #set-value {
+    display: flex;
+    flex-direction: column;
+  }
+  </style>
+
+  <link rel="preload" href="./index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="/favicon-light.png" rel="icon" media="(prefers-color-scheme: light)">
+  <link href="/favicon-dark.png" rel="icon" media="(prefers-color-scheme: dark)">
+  <link href="/favicon-light.png" type="image/x-icon" rel="shortcut icon" media="(prefers-color-scheme: light)">
+  <link href="/favicon-dark.png" type="image/x-icon" rel="shortcut icon" media="(prefers-color-scheme: dark)">
+  <link href="/favicon-light.png" type="image/x-icon" rel="apple-touch-icon" media="(prefers-color-scheme: light)">
+  <link href="/favicon-dark.png" type="image/x-icon" rel="apple-touch-icon" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <aside id="support-ukraine">
+    <a href="https://u24.gov.ua/">
+      <img src="https://flagcdn.com/16x12/ua.png" srcset="https://flagcdn.com/32x24/ua.png 2x, https://flagcdn.com/48x36/ua.png 3x" width="16" height="12" alt="Ukraine flag">&nbsp;Support Ukraine by donating here. Thank you!&nbsp;<img src="https://flagcdn.com/16x12/ua.png" srcset="https://flagcdn.com/32x24/ua.png 2x, https://flagcdn.com/48x36/ua.png 3x" width="16" height="12" alt="Ukraine flag">
+    </a>
+  </aside>
+  <main>
+    <header>
+      <h1 id="title" style="font-weight: normal"><a href="/">Roberto Tonino</a></h1>
+    </header>
+
+    <div id="counter">
+      <input readonly type="number" id="count" value="0" />
+
+      <button id="plus-two">+2</button>
+      <button id="plus-four">+4</button>
+      <button id="plus-six">+6</button>
+
+      <form id="set-value">
+        <label for="initial">Value</label>
+        <input id="initial" />
+
+        <button type="submit">Set value</button>
+      </form>
+    </div>
+
+    <script>
+      const ITEM_KEY = 'count'
+
+      const $count = document.getElementById('count')
+      const $initial = document.getElementById('initial')
+
+      const savedCount = localStorage.getItem(ITEM_KEY)
+
+      function increaseCount(by) {
+        const newValue = Number($count.value) + by
+        $count.value = newValue
+        localStorage.setItem(ITEM_KEY, newValue)
+      }
+
+      document.getElementById('plus-two').addEventListener('click', () => increaseCount(2))
+      document.getElementById('plus-four').addEventListener('click', () => increaseCount(4))
+      document.getElementById('plus-six').addEventListener('click', () => increaseCount(6))
+      document.getElementById('set-value').addEventListener('submit', (submitEvent) => {
+        submitEvent.preventDefault()
+
+
+        if (isNaN(Number($initial.value))) {
+          return
+        }
+
+        const value = Number($initial.value) ?? 0
+
+        $count.value = value
+        localStorage.setItem(ITEM_KEY, value)
+      })
+
+
+      function init() {
+        if (savedCount !== null) {
+          $count.textContent = savedCount
+        }
+      }
+
+      window.addEventListener('load', () => init())
+    </script>
+
+    <hr style="margin-bottom: 1px;" />
+    <hr style="margin-top: 0px;" />
+    <footer>
+      <small>The design of this website is freely inspired by <a href="https://usgraphics.com/">US Graphics</a>. Check them out!</small>
+      <hr />
+      <div>
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/beekeeping_in_ukraine.gif" />
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/vim.vialle.love.anim.gif" />
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/best_free.gif" />
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/bestview.gif" />
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/bugland.gif" />
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/written-by-human-not-by-ai-white.svg" />
+      </div>
+      <div>
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/html5-validator-badge.svg" />
+        <img width="88" height="31" loading="lazy" decoding="async" alt="" src="/img/valid-css.png" />
+      </div>
+    </footer>
+  </main>
+    <noscript><link rel="stylesheet" href="./index.css"></noscript>
+  </body>
+</html>
+
